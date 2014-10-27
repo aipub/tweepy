@@ -732,7 +732,9 @@ class API(object):
         if file_type not in ['image/gif', 'image/jpeg', 'image/png']:
             raise TweepError('Invalid file type for image: %s' % file_type)
 
-
+        if isinstance(filename, unicode):
+            filename = filename.encode("utf-8")
+        filename = filename.encode("utf-8")
 
         BOUNDARY = 'Tw3ePy'
         body = []
